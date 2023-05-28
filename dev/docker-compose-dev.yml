@@ -1,0 +1,23 @@
+---
+version: "3.9"
+services:
+  app:
+    build: .
+    command: cd src/; python server.py
+    volumes:
+      - .:/app
+    ports:
+      - 8890:8890
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://dev_user:dev_password@db:5432/user_db
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_password
+      POSTGRES_DB: user_db
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
