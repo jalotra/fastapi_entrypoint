@@ -1,6 +1,5 @@
 ## What is this ?
-- A sample application that has ORM support for User Models, can does CRUD ops on top on a SQL type DB, postgres support is 
-included in the box but you can use anything you want 1
+- A sample application that has ORM support for User Models, can does CRUD ops on top on a SQL type DB, postgres support is included in the box but you can use anything you want 
 
 
 ## Why this ? 
@@ -9,16 +8,18 @@ included in the box but you can use anything you want 1
 - A Controller [HTTP Server; Support HTTP Protocol and push out a bunch of APIs using json in request/response flows]
 - A Auth Token Manager [A simple JWT type thingy would work out of box here !]
 - Some custom business Logic 
-	- [Maybe support a zerodha type investment ledger and support ROI calculation and TOTAL_PORTFOLIO calculation at any time 
-X]
+        - [Maybe support a zerodha type investment ledger and support ROI calculation and TOTAL_PORTFOLIO calculation at any time X]
         - [Maybe a custom ticker manager; give out train/parking tickets]
         - [Some Random Problem]
 
 
 ## How does this help ?
 - The auth module takes care of /signup and /login flow with auth_token [Authorisation : Bearer <AUTH_TOKEN>] type support.
+
 - Writing custom business logic becomes easier from here on. 
+
 - You have to design DataBase Tables for your custom business logic, and a LLD and HLD diagrams.
+
 - Add business logic modules inside src/* as individual building blocks and then just include the router inside src/server. 
 
 

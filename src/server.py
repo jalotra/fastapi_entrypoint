@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+
 # load the environment variables
 load_dotenv("../.env")
 
@@ -13,7 +14,4 @@ app.include_router(router=router.router)
 
 
 if __name__ == "__main__":
-    uvicorn.run(
-        app,
-        host = os.environ.get("HOST"),
-        port = int(os.environ.get("PORT")))    
+    uvicorn.run(app, host=os.environ.get("HOST"), port=int(os.environ.get("PORT")))

@@ -8,14 +8,18 @@ import os
 SECRET_KEY = os.environ.get("SECRET_KEY")
 print(os.environ)
 if SECRET_KEY is None:
-    raise("SECRET_KEY environ variable not found!, can you please provide this as environ variable!")
+    raise (
+        "SECRET_KEY environ variable not found!, can you please provide this as environ variable!"
+    )
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+
 def get_user(db: Session, username: str):
     return db.query(models.User).filter(models.User.username == username).first()
+
 
 def create_user(db: Session, user: schemas.UserCreate):
     hashed_password = pwd_context.hash(user.password)
@@ -25,6 +29,7 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
+
 def authenticate_user(db: Session, username: str, password: str):
     user = get_user(db, username)
     if not user:
@@ -33,12 +38,14 @@ def authenticate_user(db: Session, username: str, password: str):
         return None
     return user
 
+
 def create_access_token(data: dict, expires_delta: timedelta):
     to_encode = data.copy()
     expire = datetime.utcnow() + expires_delta
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
 
 def decode_access_token(token: str):
     try:
