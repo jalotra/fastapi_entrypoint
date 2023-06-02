@@ -13,6 +13,9 @@
         - [Some Random Problem]
 
 
+## HLD
+![HLD_IMAGE](./images/hld.png)
+
 ## How does this help ?
 - The auth module takes care of /signup and /login flow with auth_token [Authorisation : Bearer <AUTH_TOKEN>] type support.
 
