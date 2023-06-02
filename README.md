@@ -8,8 +8,11 @@
 - A Controller [HTTP Server; Support HTTP Protocol and push out a bunch of APIs using json in request/response flows]
 - A Auth Token Manager [A simple JWT type thingy would work out of box here !]
 - Some custom business Logic 
+        
         - [Maybe support a zerodha type investment ledger and support ROI calculation and TOTAL_PORTFOLIO calculation at any time X]
+        
         - [Maybe a custom ticker manager; give out train/parking tickets]
+        
         - [Some Random Problem]
 
 
