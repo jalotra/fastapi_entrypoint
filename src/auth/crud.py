@@ -6,7 +6,6 @@ import jwt
 import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-print(os.environ)
 if SECRET_KEY is None:
     raise (
         "SECRET_KEY environ variable not found!, can you please provide this as environ variable!"

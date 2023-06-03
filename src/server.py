@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 
 # load the environment variables
-load_dotenv("../.env")
+load_dotenv(".env")
 
 from fastapi import FastAPI
 from auth import router

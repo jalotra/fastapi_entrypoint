@@ -7,13 +7,15 @@ WORKDIR /app
 # Copy the requirements file into the container at /app
 COPY requirements.txt .
 
+ENV HOST="0.0.0.0"
+ENV PORT="8890"
+ENV SECRET_KEY="RANDOM_KEY"
+
 # Install any needed packages specified in requirements.txt
-RUN python -m venv env && \
-    . env/bin/activate && \
-    python -m pip install --upgrade pip && \
-    python -m pip install -r requirements.txt
+RUN python -m pip install --upgrade pip && \
+    python -m pip install -r requirements.txt 
 
 # Copy the rest of the application code into the container at /app
-COPY . .
+COPY src/ .
 
-CMD ["/bin/bash"]
+CMD ["python", "server.py"]

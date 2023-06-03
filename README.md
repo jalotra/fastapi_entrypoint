@@ -25,6 +25,13 @@
 
 - Add business logic modules inside src/* as individual building blocks and then just include the router inside src/server. 
 
+## How to run ? 
+- Make sure docker-compose in installed and docker-daemon in running. Read Docker is you are a noobie !
+
+- run `docker-compose -f dev/docker-compose-dev.yml build` and `docker-compose -f dev/docker-compose-dev.yml up`
+
+- goto : localhost:8890/docs to test out the APIs
+
 
 ## RoadMap 
 - 1. Adding support for Tests; inside tests/
