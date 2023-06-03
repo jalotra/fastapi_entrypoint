@@ -34,6 +34,7 @@ spec:
             - name: POSTGRES_USER
               value: dev_user
           image: postgres
+          imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
               command:
@@ -45,6 +46,8 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 60
           name: db
+          ports:
+            - containerPort: 5432
           resources: {}
           volumeMounts:
             - mountPath: /var/lib/postgresql/data

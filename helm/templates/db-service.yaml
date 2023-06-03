@@ -6,15 +6,14 @@ metadata:
     kompose.version: 1.28.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: app
-  name: app
+    io.kompose.service: db
+  name: db
 spec:
-  type : LoadBalancer
   ports:
-    - name: "8890"
-      port: 8890
-      targetPort: 8890
+    - name: "5342"
+      port: 5342
+      targetPort: 5432
   selector:
-    io.kompose.service: app
+    io.kompose.service: db
 status:
   loadBalancer: {}

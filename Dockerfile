@@ -10,6 +10,7 @@ COPY requirements.txt .
 ENV HOST="0.0.0.0"
 ENV PORT="8890"
 ENV SECRET_KEY="RANDOM_KEY"
+ENV ENVIRONMENT="dev"
 
 # Install any needed packages specified in requirements.txt
 RUN python -m pip install --upgrade pip && \
