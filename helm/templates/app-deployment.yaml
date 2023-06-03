@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose --file dev/docker-compose-dev.yml convert -c
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose --file dev/docker-compose-dev.yml convert -c
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/dev-default: "true"
+        io.kompose.service: app
+    spec:
+      containers:
+        - env:
+            - name: DATABASE_URL
+              value: postgresql://dev_user:dev_password@db:5432/user_db
+          image: dev-app
+          imagePullPolicy : IfNotPresent
+          name: app
+          ports:
+            - containerPort: 8890
+          resources: {}
+          tty: true
+      restartPolicy: Always
+status: {}

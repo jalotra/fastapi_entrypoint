@@ -1,0 +1,8 @@
+name: dev/docker-compose-dev
+description: A generated Helm Chart for dev/docker-compose-dev from Skippbox Kompose
+version: 0.0.1
+apiVersion: v1
+keywords:
+  - dev/docker-compose-dev
+sources:
+home:
